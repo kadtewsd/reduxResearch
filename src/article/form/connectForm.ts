@@ -13,7 +13,7 @@ interface IAddingArticle extends IArticleAction {
     type: ArticleActionTypes.ADD_ARTICLE,
 }
 
-export class ActionDispatcher {
+export class ArticleActionDispatcher {
     constructor(private dispatch: (action: IArticleAction) => void) { }
     public add(article: Article) {
         this.dispatch(addArticle(article));
@@ -26,7 +26,7 @@ const addArticle = (article: Article): IAddingArticle => ({
 })
 
 const mapFormState = (form: IFormArticleProp) => form;
-const mapDispatchToProps = (dispatch: Dispatch<IArticleAction>) => ({ actions: new ActionDispatcher(dispatch) })
+const mapDispatchToProps = (dispatch: Dispatch<IArticleAction>) => ({ actions: new ArticleActionDispatcher(dispatch) })
 // const mapDispatchToProps = (dispatch: any) => {
 //     return {
 //         addArticle: (article: Article): void => dispatch(addArticle),

@@ -1,6 +1,6 @@
 import * as React from 'react';
 // import { IArticleState } from '../../store/store';
-import  Article  from '../Article';
+import Article from '../Article';
 
 // export const ListComponent = (state: IArticleState) => (
 //     <ul className='list-group list-group-flush' >

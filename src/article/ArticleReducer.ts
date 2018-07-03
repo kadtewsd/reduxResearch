@@ -1,5 +1,5 @@
 import Article from './Article';
-import ArticleAction from './ArticleAction';
+import ArticleAction, { IStateRoot } from './ArticleAction';
 import ActionTypes from './ArticleActionTypes';
 
 // ここで any 型を入れると,
@@ -15,11 +15,11 @@ const initialState: IArticleState = { articles: [new Article(1, '東スポ倒産
 /**
  * 記事のリスト
  */
-export interface IArticleState  {
+export interface IArticleState extends IStateRoot {
     articles: Article[],
     // companyName: string,
 }
-export const reducerTwo = (state: IArticleState = initialState, action: ArticleAction) => {
+const reducerTwo = (state: IArticleState = initialState, action: ArticleAction) => {
 // export function reducerTwo(state: IArticleState = initialState, action: ArticleAction) {
     switch (action.type) {
         case ActionTypes.ADD_ARTICLE:
@@ -31,3 +31,4 @@ export const reducerTwo = (state: IArticleState = initialState, action: ArticleA
             return state;
     };
 }
+export default reducerTwo;

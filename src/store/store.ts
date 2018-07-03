@@ -1,8 +1,10 @@
 import { Action, combineReducers, createStore } from '../../node_modules/redux';
-// import Article from '../article/Article';
-// import { reducerTwo } from '../article/ArticleReducer';
-import counter, { CounterActions, ICounterState, } from '../container/module';
-// Reducer の function を import すると reducer mapStateToProp の中身が変なものになる。
+// 関数名と同じ名前で import すると、state.reducerTwo.articles で値が入ってくる。
+// import reducerTwo, { IArticleState } from '../article/ArticleReducer';
+// このため、news という名前にして、mapStateToProp の引数の型と同じ名前にする。
+import news, { IArticleState } from '../article/ArticleReducer';
+import { CounterActions, ICounterState, } from '../container/module';
+// import counter, { CounterActions, ICounterState, } from '../container/module';
 // import firstReducer, { CounterActions, ICounterState, } from '../container/module';
 
 /**
@@ -11,13 +13,22 @@ import counter, { CounterActions, ICounterState, } from '../container/module';
  */
 export default createStore(
     combineReducers({
-        counter,
-        // reducerTwo,
+        // counter,
+        news,
     }),
 );
 
 export interface IReduxState {
     counter: ICounterState;
+}
+
+/**
+ * このインラーフェースのプロパティ名は、reducer の import の名前と一致させる必要がある。
+ * mapStateToProp の引数として、IKasakaidReducerState を指定すると、そのプロパティ名は、Reducer の import 名になる。
+ * news プロパティの下に紐づいているのが IArticleState.articles になる。
+ */
+export interface IKasakaidReducerState {
+    news: IArticleState;
 }
 
 export type ReduxAction = CounterActions | Action;
