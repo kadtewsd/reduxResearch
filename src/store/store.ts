@@ -3,9 +3,10 @@ import { Action, combineReducers, createStore } from '../../node_modules/redux';
 // import reducerTwo, { IArticleState } from '../article/ArticleReducer';
 // このため、news という名前にして、mapStateToProp の引数の型と同じ名前にする。
 import news, { IArticleState } from '../article/ArticleReducer';
-import { CounterActions, ICounterState, } from '../container/module';
-// import counter, { CounterActions, ICounterState, } from '../container/module';
+// firstReducer は mapStateToProp の引数の型である IReduxState のプロパティに一致していないので、うまく動かない。
+// IReduxState のプロパティ名である counter で reducer を import する。
 // import firstReducer, { CounterActions, ICounterState, } from '../container/module';
+import counter, { CounterActions, ICounterState, } from '../container/module';
 
 /**
  * この関数で counter (export default である reduce) を reducer として登録しています。
@@ -13,7 +14,7 @@ import { CounterActions, ICounterState, } from '../container/module';
  */
 export default createStore(
     combineReducers({
-        // counter,
+        counter,
         news,
     }),
 );
