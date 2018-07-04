@@ -23,7 +23,9 @@ export class ListComponent extends React.Component<IProps, {}> {
             <ul className='list-group list-group-flush' >
                 {this.props.articles.map(e1 => (
                     <li className='list-group-item' key={e1.id}>
+                        <h2>{e1.id}</h2>
                         {e1.title}
+                        <div>{e1.content}</div>
                     </li>
                 ))}
             </ul>

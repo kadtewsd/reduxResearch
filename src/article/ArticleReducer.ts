@@ -4,7 +4,7 @@ import ActionTypes from './ArticleActionTypes';
 
 // ここで any 型を入れると,
 // 訳のわからない値が ListComponent に弥。
-const initialState: IArticleState = { articles: [new Article(1, '東スポ倒産', 'まさかの東スポ倒産')] };
+const initialState: IArticleState = { articles: [new Article("1", '東スポ倒産', 'まさかの東スポ倒産')] };
 // const initialState: IArticleState = { articles: [new Article(1, '東スポ倒産', 'まさかの東スポ倒産')] };
 
 /**
