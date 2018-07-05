@@ -1,8 +1,7 @@
 import { ArticleActionDispatcher } from "./connectForm";
 
 export interface IFormArticleProp {
-    // addArticle(id: string, title: string, content: string): void;
-    addArticle: ArticleActionDispatcher,
+    articleActionDispatcher: ArticleActionDispatcher,
 }
 
 export interface IFormArticleState {

@@ -79,7 +79,7 @@ export class ConnectedForm extends React.Component<IFormArticleProp, IFormArticl
     private handleSubmit(event: IFormInputEvent) {
         event.preventDefault();
         const { title, content } = this.state;
-        this.props.addArticle.add(v1(), title, content);
+        this.props.articleActionDispatcher.add(v1(), title, content);
         this.setState({ title: '', content: '' });
     }
 }
