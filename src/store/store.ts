@@ -9,8 +9,13 @@ import news, { IArticleState } from '../article/ArticleReducer';
 import counter, { CounterActions, ICounterState, } from '../container/module';
 
 /**
- * この関数で counter (export default である reduce) を reducer として登録しています。
- * このストアの reducer が生成されます。
+ * この関数で counter, news という Reduer を引数に渡しています。
+ * counter は module、news は ArticleReducer の default として export されている、state と actio を引数とする reducer のメソッドです。
+ * createStore メソッドは、default として export されているので、このメソッドを import したモジュールにて reducer にアクセスすることができます。 
+ * 一般的な使い方は Provier の属性に store を指定して、子階層のコンポーネントに store を渡します。
+ * connect メソッドの第一引数の mapStateToProp 関数のオブジェクトリテラルの引数のメンバー名と reducer の名前 (counter, news) は一致します。
+ * connect メソッドの第一引数の mapStateToProp 関数のオブジェクトリテラルの戻り値のメンバー名は、子コンポーネントのプロパティの名前 (value, articles) と一致します。
+ * もちろん、store を子コンポーネントで直接呼び出すことも可能です。
  */
 export default createStore(
     combineReducers({
